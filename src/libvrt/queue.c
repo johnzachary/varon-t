@@ -270,7 +270,7 @@ static int
 vrt_queue_add_producer(struct vrt_queue *q, struct vrt_producer *p)
 {
     /* Add the producer to the queue's array and assign its index. */
-    rii_check(cork_array_append(&q->producers, p));
+    cork_array_append(&q->producers, p);
     p->queue = q;
     p->index = cork_array_size(&q->producers) - 1;
 
@@ -303,7 +303,7 @@ static int
 vrt_queue_add_consumer(struct vrt_queue *q, struct vrt_consumer *c)
 {
     /* Add the consumer to the queue's array and assign its index. */
-    rii_check(cork_array_append(&q->consumers, c));
+    cork_array_append(&q->consumers, c);
     c->queue = q;
     c->index = cork_array_size(&q->consumers) - 1;
     return 0;
